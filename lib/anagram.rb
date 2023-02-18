@@ -1,14 +1,28 @@
 # Your code goes here!
 class Anagram
-    attr_reader :word
-
-    def intialize (word)
-        @word = word
+    def initialize(word)
+        @word = word.downcase 
+        @sorted_word = @word.chars.sort.join
     end
 
-    def match (array)
-     letter.sort === word.sort
+    def match(words)
+        words.select do |w|
+        w.downcase !=@word && w.downcase.chars.sort.join == @sorted_word
+        end
     end
 end
 
-char = Anagram.new ("re-arrange")
+anagram = Anagram.new("listen")
+anagram.match(["enlists","inlets", "lineon", "brave"])
+    
+    # attr_reader :word :match
+
+    # def intialize (word)
+    #     @word = word
+    # end
+
+    # def match (array)
+    #  letter.sort === word.sort
+    # end
+
+# word = Anagram.new ("re-arrange")
